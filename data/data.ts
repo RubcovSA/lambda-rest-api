@@ -1,19 +1,19 @@
 import leaguesData from './data.json'
 
-export const leagues: League[] = leaguesData
+export const leagues: ILeague[] = leaguesData
 
-interface League {
+interface ILeague {
   id: string
   name: string
-  rounds: Round[]
+  rounds: IRound[]
 }
 
-interface Round {
+interface IRound {
   name: string
-  matches: Match[]
+  matches: IMatch[]
 }
 
-interface Match {
+interface IMatch {
   date: string
   team1: string
   team2: string

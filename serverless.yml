@@ -5,6 +5,7 @@ frameworkVersion: '2'
 plugins:
   - serverless-plugin-typescript
   - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -35,17 +36,11 @@ functions:
       - http:
           path: league/{league_id}/team/{team_id}/matches
           method: get
-  top-10:
-    handler: api/top-10.handler
+  top-3:
+    handler: api/top-3.handler
     events:
       - http:
-          path: league/{league_id}/top-10
-          method: get
-  largest-wins:
-    handler: api/largest-wins.handler
-    events:
-      - http:
-          path: league/{league_id}/largest-wins
+          path: league/{league_id}/top-3
           method: get
   champions:
     handler: api/champions.handler

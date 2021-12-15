@@ -11,7 +11,6 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
   const { league_id, team_id } = event.pathParameters
   const team_id_decoded = decodeURIComponent(team_id)
-  console.log(team_id_decoded)
   const league = leagues.find((l) => l.id === league_id)
 
   if (!league) {
@@ -24,7 +23,6 @@ export const handler: APIGatewayProxyHandler = async (event) => {
   const teamMatches = league.rounds
     .map((r) => {
       return r.matches.filter((m) => {
-        console.log(m.team1, m.team2, team_id_decoded)
         return m.team1 === team_id_decoded || m.team2 === team_id_decoded
       })
     })

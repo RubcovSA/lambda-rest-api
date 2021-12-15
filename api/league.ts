@@ -12,7 +12,6 @@ export const handler: APIGatewayProxyHandler = async (event) => {
   const { league_id } = event.pathParameters
 
   const league = leagues.find((l) => {
-    console.log(l.id, league_id)
     return l.id === league_id
   })
 
