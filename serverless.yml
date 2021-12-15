@@ -4,15 +4,52 @@ frameworkVersion: '2'
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-offline
 provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: '20201221'
 
 functions:
-  hello:
-    handler: api/handler.hello
+  leagues:
+    handler: api/leagues.handler
     events:
       - http:
-          path: /
+          path: leagues/
+          method: get
+  league:
+    handler: api/league.handler
+    events:
+      - http:
+          path: league/{league_id}
+          method: get
+  teams:
+    handler: api/teams.handler
+    events:
+      - http:
+          path: league/{league_id}/teams
+          method: get
+  team-matches:
+    handler: api/team-matches.handler
+    events:
+      - http:
+          path: league/{league_id}/team/{team_id}/matches
+          method: get
+  top-10:
+    handler: api/top-10.handler
+    events:
+      - http:
+          path: league/{league_id}/top-10
+          method: get
+  largest-wins:
+    handler: api/largest-wins.handler
+    events:
+      - http:
+          path: league/{league_id}/largest-wins
+          method: get
+  champions:
+    handler: api/champions.handler
+    events:
+      - http:
+          path: champions/
           method: get
