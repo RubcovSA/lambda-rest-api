@@ -1,0 +1,19 @@
+{
+  "name": "lambda-rest-api",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint \"{api,test}/**/*.ts\" --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-plugin-typescript": "^2.1.0",
+    "typescript": "^4.5.4",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "supertest": "^6.1.3"
+  }
+}
